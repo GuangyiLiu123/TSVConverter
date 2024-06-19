@@ -1,0 +1,17 @@
+# Pandas to read CSV
+import pandas as pd
+
+# Passing the TSV file to
+# read_csv() function
+data_df = pd.read_csv('pubchem1_sample.tsv', sep='\t')
+
+dataTypes = ["cid", "iupac", "xlogp3", "mass", "formula", "molecule_weight", "polar", "mono_weight","smi","casid", "synonyms" ]
+
+with open('thing.txt', 'a') as f:
+  for i in range(100):
+    for j in range(11):
+      if(str(data_df.iloc[i,j])!="nan"):
+        f.write(dataTypes[j]+":"+str(data_df.iloc[i,j])+" ")
+      else:
+        f.write(dataTypes[j]+":None ")
+    f.write("\n")
